@@ -30,7 +30,7 @@
               # inherit (inputs) foo;
             };
           };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
+          nixcalibur = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
           checks = {
@@ -39,8 +39,9 @@
           };
 
           packages = {
-            # Lets you run `nix run .` to start nixvim
-            default = nvim;
+            # Lets you run `nix run .#nixcalibur` to start nixvim
+            nixcalibur = nixcalibur;
+            default = nixcalibur;
           };
         };
     };
